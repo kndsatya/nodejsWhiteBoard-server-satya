@@ -1,13 +1,14 @@
 const mongoose = require('mongoose');
-const trueFalseSchema = require('./true-false.schema.server.js');
-const multipleChoiceSchema = require('./multiple-choice.schema.server.js');
+const TrueFalseSchema = require('./true-false.schema.server');
+const MultipleChoiceSchema = require('./multiple-choice.schema.server');
 const questionSchema = mongoose.Schema({
-    _id: Number,
+    _id: {type: Number, required: true},
     question: String,
     points: Number,
     questionType: {type: String, enum: ['MULTIPLE_CHOICE','TRUE_FALSE'] },
-    multipleChoice: multipleChoiceSchema,
-    trueFalse: trueFalseSchema
+    multipleChoice: MultipleChoiceSchema,
+    trueFalse: TrueFalseSchema
+
 }, {collection: 'questions'});
 
 module.exports = questionSchema;
