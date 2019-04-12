@@ -7,6 +7,6 @@ const studentSchema =
         firstName: String,
         lastName: String,
         gradYear : Number,
-        scholarship: Decimal128
+        scholarship: Number
     }, {collection: 'students'});
 module.exports = studentSchema;
